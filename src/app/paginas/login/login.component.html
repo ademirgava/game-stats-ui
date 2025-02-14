@@ -1,14 +1,19 @@
 <app-container>
-  <form [formGroup]="loginForm" (ngSubmit)="logar()">
-    <div class="form-group">
-      <label for="username">Usuário</label>
-      <input type="text" class="form-control" id="login" formControlName="login" placeholder="Enter username">
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="logar()">
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Efetuar login</h1>
+    <label for="inputEmail" class="sr-only">Usuário</label>
+    <input type="text" id="login" formControlName="login" class="form-control" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Senha</label>
+    <input type="password" id="inputPassword" formControlName="senha" class="form-control" placeholder="Password" required="">
+    <!--<div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="senha" formControlName="senha" placeholder="Password">
-    </div>
-      <button type="submit" class="btn btn-primary" style="margin-top: 6px;">Login</button>
+  -->
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© 2025</p>
   </form>
-
 </app-container>
+
