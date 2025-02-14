@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContainerComponent } from "../../componentes/container/container.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { LoginService } from '../../services/login.service';

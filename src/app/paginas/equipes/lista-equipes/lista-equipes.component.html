@@ -1,0 +1,10 @@
+<app-container> 
+    @for (equipe of equipes; track equipe.id) {
+    <app-equipe
+        [nome]="equipe.nome"
+        [id]="equipe.id"
+        >
+        
+    </app-equipe>
+}
+</app-container>
