@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Login } from '../paginas/login/login';
+import { Login } from '../componentes/models/login';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +34,13 @@ export class LoginService {
   logout(): void {
     localStorage.removeItem(this.authSecretKey);
     this.isAuthenticated = false;
+  }
+
+  getToken(): any {
+    return localStorage.getItem(this.authSecretKey);
+  }
+
+  refreshAccessToken(): any {
+    return null;
   }
 }
