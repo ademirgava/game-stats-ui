@@ -1,0 +1,52 @@
+<app-container>
+<form class="row g-3" [formGroup]="equipeForm" (ngSubmit)="salvarEquipe()">
+    <div class="col-12">
+      <label for="inputNome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" placeholder="Nome da equipe" formControlName="nome">
+    </div>
+    <div class="col-md-4">
+      <label for="inputSigla" class="form-label">Sigla</label>
+      <input type="text" class="form-control" id="sigla" placeholder="Sigla" formControlName="sigla">
+    </div>
+    <div class="col-md-6">
+      <label for="inputDataFundacao" class="form-label">Data fundação</label>
+      <input type="date" data-provide="datepicker" class="form-control" id="dataFundacao" formControlName="dataFundacao">      
+    </div>
+    <div class="col-md-4">
+      <label for="inputCorPrincipal" class="form-label">Cor principal</label>
+      <input type="color" class="form-control" id="corPrincipal" formControlName="corPrincipal">
+    </div>
+    <div class="col-md-4">
+      <label for="inputCorSecundaria" class="form-label">Cor Secundária</label>
+      <input type="color" class="form-control" id="corSecundaria" formControlName="corSecundaria">
+    </div>
+    <div class="col-md-4">
+      </div>
+      <!--
+    @if (equipeForm.get('logomarca')?.value) {
+        <div class="col-12">
+            <figure>
+                <img [src]="equipeForm.get('logomarca')?.value" alt="Escudo da equipe">
+            </figure>
+        </div>      
+    }
+    @else {
+        <div role="button" class="imagem-equipe col-md-12">
+            <label for="logomarca">Adicione o escudo da equipe:</label>
+        </div>
+        <div role="button" class="imagem-equipe col-md-12">
+            <input type="file" accept="image/*" id="logomarca" required (change)="aoSelecionarArquivo($event)">
+        </div>
+    }-->
+    <div class="col-md-4">     
+        <button 
+            class="btn btn-primary"
+            [disabled]="equipeForm.invalid" 
+            [ngClass]="equipeForm.valid ? '' : 'btn btn-light'"
+            type="submit">Salvar equipe</button>
+    </div>
+    <div class="col-md-4">
+        <button (click)="cancelar()" type="button" class="btn btn-danger">Cancelar</button>
+    </div>
+  </form>
+</app-container>

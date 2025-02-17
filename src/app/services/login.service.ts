@@ -1,23 +1,23 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Login } from '../componentes/models/login';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Login } from "../componentes/models/login";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class LoginService {
-
   private isAuthenticated = false;
-  private authSecretKey = 'Bearer Token';
+  private authSecretKey = "Bearer Token";
 
-  private readonly API = 'http://localhost:8080/api/login'
+  private readonly API = "http://localhost:8080/api/login";
 
   constructor(private http: HttpClient) {
     this.isAuthenticated = !!localStorage.getItem(this.authSecretKey);
   }
 
   logar(login: Login): Observable<String> {
+    localStorage.removeItem(this.authSecretKey);
     return this.http.post<String>(this.API, login);
   }
 

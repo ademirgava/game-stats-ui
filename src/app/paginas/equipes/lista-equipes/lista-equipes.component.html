@@ -1,10 +1,13 @@
-<app-container> 
+<app-container>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe']">Nova equipe</button>
+    <section class="lista-equipe"> 
     @for (equipe of equipes; track equipe.id) {
-    <app-equipe
-        [nome]="equipe.nome"
-        [id]="equipe.id"
-        >
-        
-    </app-equipe>
-}
+        <app-equipe
+            [nome]="equipe.nome"
+            [id]="equipe.id"
+            >
+            
+        </app-equipe>
+    }
+    </section>
 </app-container>
