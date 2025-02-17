@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { Component } from "@angular/core";
+import { LoginService } from "../../services/login.service";
 import { ContainerComponent } from "../../componentes/container/container.component";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-home',
+  selector: "app-home",
   imports: [ContainerComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: "./home.component.html",
+  styleUrl: "./home.component.css",
 })
 export class HomeComponent {
   constructor(private loginService: LoginService, private router: Router) {}
 
   logout() {
     this.loginService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl("/login");
   }
 }

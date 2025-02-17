@@ -1,13 +1,14 @@
-<section>
-    <ul>
-        <img
-            [src]="logomarca"
-            alt="logomarca"
-            class="logomarca">
-        <li>{{nome}}</li>
-        <li>{{sigla}}</li>
-        <li>{{dataFundacao}}</li>
-        <li>{{corPrincipal}}</li>
-        <li>{{corSecundaria}}</li>
-    </ul>
+<section class="equipe">
+     <div class="card" style="width: 18rem;">
+        <img [src]="logomarca"
+        alt="logomarca"
+        class="logomarca">
+        <div class="card-body">
+            <h5 class="card-title">{{nome}}</h5>
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe', id]">Editar</button>
+            <button type="button" class="btn btn-outline-danger" [routerLink]="['/formulario-equipe', id]">Inativar</button>
+          </div>
+      </div>
 </section>

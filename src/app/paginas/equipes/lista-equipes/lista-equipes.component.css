@@ -1,0 +1,4 @@
+.lista-equipe{
+    display: flex;
+    flex-flow: wrap;
+}
