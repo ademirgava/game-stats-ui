@@ -11,7 +11,7 @@ import { Equipe } from "../../componentes/models/equipe";
 export class EquipesService {
   private readonly API = "http://localhost:8080/api/equipes";
 
-  constructor(private http: HttpClient, private loginService: LoginService) {}
+  constructor(private http: HttpClient) {}
 
   obterTodasEquipes(): Observable<Page> {
     return this.http.get<Page>(this.API);
