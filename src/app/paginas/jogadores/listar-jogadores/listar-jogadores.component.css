@@ -1,0 +1,4 @@
+.lista-jogador {
+    display: flex;
+    flex-flow: wrap;
+}

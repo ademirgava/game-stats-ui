@@ -1,0 +1,66 @@
+<app-container>
+    <form [formGroup]="jogadorForm" (ngSubmit)="salvarJogador()">
+        <div class="row">
+            <div class="col-4">
+                <figure>
+                @if (jogadorForm.get('foto')?.value) {
+                    <img [src]="jogadorForm.get('foto')?.value" alt="Foto jogador">
+                }
+                @else {
+                    <img src="/assets/no-image-icon.png" alt="Foto jogador">
+                }
+                </figure>
+            </div> 
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputNome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Nome da equipe" formControlName="nome">
+                </div>
+                <div class="mb-3">
+                    <label for="inputApelido" class="form-label">Apelido</label>
+                    <input type="text" class="form-control" id="apelido" placeholder="Nome da equipe" formControlName="apelido">
+                </div> 
+                <div class="md-3">
+                    <label for="inputDataNascimento" class="form-label">Data Nascimento</label>
+                    <input type="date" data-provide="datepicker" class="form-control" id="dataNascimento" formControlName="dataNascimento">      
+                </div>               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label for="inputCpf" class="form-label">CPF</label>
+                <input type="text" maxlength="14" class="form-control" id="cfp" placeholder="Cpf do jogador" formControlName="cpf">
+            </div>
+            <div class="col-4 mb-3">
+                <label for="inputRg" class="form-label">RG</label>
+                <input type="text" class="form-control" id="rg" placeholder="RG do jogador" formControlName="rg">
+            </div>
+            <div class="col-4 mod-3">
+                <label for="inputRg" class="form-label">Pé</label>
+                <select class="form-select" formControlName="pePredominante">
+                    <option value="Direito">Direito</option>
+                    <option value="Esquerdo">Esquerdo</option>
+                    <option value="Ambidestro">Ambidestro</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <label for="inputDescricao" class="form-label">Descrição</label>
+                <textarea type="textArea" class="form-control" id="descricao" placeholder="Descrição do jogador" formControlName="descricao"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">     
+                <button 
+                    class="btn btn-primary"
+                    [disabled]="jogadorForm.invalid" 
+                    [ngClass]="jogadorForm.valid ? '' : 'btn btn-light'"
+                    type="submit">Salvar jogador</button>
+            </div>
+            <div class="col-md-4">
+                <button (click)="cancelar()" type="button" class="btn btn-danger">Cancelar</button>
+            </div>
+        </div>
+      </form>
+    </app-container>

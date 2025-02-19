@@ -1,10 +1,9 @@
 <app-container>
     <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe']">Nova equipe</button>
     <section class="lista-equipe"> 
-    @for (equipe of equipes; track equipe.id) {
+    @for (item of equipes; track item.id) {
         <app-equipe
-            [nome]="equipe.nome"
-            [id]="equipe.id"
+            [equipe]="item"
             >
             
         </app-equipe>

@@ -1,14 +1,22 @@
 <section class="equipe">
      <div class="card" style="width: 18rem;">
-        <img [src]="logomarca"
-        alt="logomarca"
-        class="logomarca">
+      @if (equipe.logomarca) {
+        <img [src]="equipe.logomarca" alt="Escudo equipe">
+      }
+      @else {
+          <img src="/assets/no-image-icon.png" alt="Escudo equipe">
+      }
         <div class="card-body">
-            <h5 class="card-title">{{nome}}</h5>
+            <h5 class="card-title" 
+            [style]="{'color': equipe.corPrincipal != null ? equipe.corPrincipal : 'black'}"
+            >{{equipe.nome}}</h5>
           </div>
           <div class="card-body">
-            <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe', id]">Editar</button>
-            <button type="button" class="btn btn-outline-danger" [routerLink]="['/formulario-equipe', id]">Inativar</button>
+            <a [routerLink]="['/lista-jogador', equipe.id]">Lista de Jogadores</a>
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe', equipe.id]">Editar</button>
+            <button type="button" class="btn btn-outline-danger botao" [routerLink]="['/formulario-equipe', equipe.id]">Inativar</button>
           </div>
       </div>
 </section>

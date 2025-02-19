@@ -1,0 +1,14 @@
+<section class="jogador">
+    <div class="card" style="width: 18rem;">
+       <img [src]="jogador.foto"
+       alt="foto"
+       class="foto">
+       <div class="card-body">
+           <h5 class="card-title">{{jogador.nome}}</h5>
+          
+         </div>
+         <div class="card-body">
+           <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-jogador', jogador.id]" [queryParams]="{ equipeId: idEquipe}">Editar</button>
+         </div>
+     </div>
+</section>

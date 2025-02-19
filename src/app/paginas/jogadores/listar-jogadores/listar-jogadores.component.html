@@ -1,0 +1,13 @@
+<app-container>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-jogador']" [queryParams]="{ equipeId: idEquipe}">Novo jogador</button>
+    <h5 class="card-title" [style]="{'color': corPrincipal != '' ? corPrincipal : 'black'}"
+    >{{nomeEquipe}}</h5>
+    <section class="lista-jogador"> 
+    @for (jogador of jogadores; track jogador.id) {
+        <app-jogador
+            [jogador]="jogador"
+            [idEquipe]="idEquipe">
+        </app-jogador>
+    }
+    </section>
+</app-container>
