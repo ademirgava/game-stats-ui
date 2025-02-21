@@ -28,6 +28,11 @@ export class ListaEquipesComponent implements OnInit {
   ngOnInit(): void {
     this.equipesService.obterTodasEquipes().subscribe((listaEquipes) => {
       this.equipes = listaEquipes.content;
+      this.equipes.forEach((equipe) => {
+        equipe.logomarca = this.equipesService.getLogomarcaImage(
+          equipe.logomarca
+        );
+      });
     });
   }
 }
