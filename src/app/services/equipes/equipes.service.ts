@@ -1,6 +1,5 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpEvent, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { LoginService } from "../login.service";
 import { Observable } from "rxjs";
 import { Page } from "../../componentes/models/page";
 import { Equipe } from "../../componentes/models/equipe";
@@ -35,5 +34,38 @@ export class EquipesService {
 
   salvarEquipe(novaEquipe: Equipe) {
     return this.http.post<Equipe>(this.API, novaEquipe);
+  }
+
+  salvarLogomarca(equipeId: number, formData: FormData) {
+    return this.http.post<Equipe>(
+      `${this.API}/add-imagem/${equipeId}`,
+      formData
+    );
+  }
+
+  getLogomarca(equipeId: number): Observable<any> {
+    return this.http.get<any>(`${this.API}/image/${equipeId}`);
+  }
+
+  upload(equipeId: number, file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append("file", file);
+
+    const req = new HttpRequest(
+      "POST",
+      `${this.API}/add-imagem/${equipeId}`,
+      formData,
+      {
+        reportProgress: true,
+        responseType: "json",
+      }
+    );
+
+    return this.http.request(req);
+  }
+
+  getLogomarcaImage(imagem: any): any {
+    return "data:@file;base64," + imagem;
   }
 }

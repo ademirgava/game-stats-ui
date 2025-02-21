@@ -19,6 +19,8 @@ import { EquipesService } from "../../../services/equipes/equipes.service";
 })
 export class FormularioEquipeComponent implements OnInit {
   equipeForm!: FormGroup;
+  changeLogomarca: boolean = false;
+  currentFile!: File;
 
   constructor(
     private equipeService: EquipesService,
@@ -32,6 +34,7 @@ export class FormularioEquipeComponent implements OnInit {
   }
 
   inicializarFormulario(): void {
+    this.changeLogomarca = false;
     this.equipeForm = new FormGroup({
       nome: new FormControl("", Validators.required),
       sigla: new FormControl("", Validators.required),
@@ -46,6 +49,9 @@ export class FormularioEquipeComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get("id");
     if (id) {
       this.equipeService.buscarPorEquipeId(parseInt(id)).subscribe((equipe) => {
+        equipe.logomarca = this.equipeService.getLogomarcaImage(
+          equipe.logomarca
+        );
         this.equipeForm.patchValue(equipe);
       });
     }
@@ -54,7 +60,10 @@ export class FormularioEquipeComponent implements OnInit {
   aoSelecionarArquivo(event: any) {
     const file: File = event.target.files[0];
     if (file) {
+      this.currentFile = file;
+      this.changeLogomarca = true;
       this.lerArquivo(file);
+      this.equipeForm.get("logomarca")?.setValue(file);
     }
   }
 
@@ -79,8 +88,15 @@ export class FormularioEquipeComponent implements OnInit {
     novaEquipe.id = id ? parseInt(id) : null;
 
     this.equipeService.editarOuSalvarEquipe(novaEquipe).subscribe((equipe) => {
-      this.equipeForm.reset();
-      this.router.navigateByUrl("/lista-equipes");
+      const equipeId: number = equipe.id != undefined ? equipe.id : 0;
+      if (this.changeLogomarca && equipeId > 0) {
+        this.equipeService
+          .upload(equipeId, this.currentFile)
+          .subscribe((res) => {
+            this.equipeForm.reset();
+            this.router.navigateByUrl("/lista-equipes");
+          });
+      }
     });
   }
 }
