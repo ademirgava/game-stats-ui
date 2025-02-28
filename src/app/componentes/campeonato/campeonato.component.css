@@ -1,0 +1,9 @@
+.card {
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+}
+
+.descricao {
+    height: 80px;
+}
