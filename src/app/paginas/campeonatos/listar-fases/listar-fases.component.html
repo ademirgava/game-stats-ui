@@ -1,0 +1,16 @@
+<app-container>
+    <section class="lista-fase">
+      @for (fase of fases; track fase.id) {
+          <app-fase
+            [fase]="fase"
+          ></app-fase>
+      }
+    </section>
+    <div #fase></div>
+
+    <div class="col-md-4">
+      <button (click)="cancelar()" type="button" class="btn btn-danger">Cancelar</button>
+      <button class="btn btn-primary" (click)="appendComponent()"
+      [disabled]="showAdd">Nova fase</button>
+  </div>
+</app-container>

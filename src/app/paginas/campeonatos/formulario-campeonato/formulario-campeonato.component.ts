@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute, Router } from "@angular/router";
-
-import { CampeonatosService } from "../../../services/campeonatos/campeonatos.service";
-import { ContainerComponent } from "../../../componentes/container/container.component";
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
+
+import { CampeonatosService } from "../../../services/campeonatos/campeonatos.service";
+import { ContainerComponent } from "../../../componentes/container/container.component";
 
 @Component({
   selector: "app-formulario-campeonato",

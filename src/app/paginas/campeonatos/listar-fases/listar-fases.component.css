@@ -1,0 +1,4 @@
+.lista-fase {
+    display: flex;
+    flex-flow: wrap;
+}

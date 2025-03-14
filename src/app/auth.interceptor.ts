@@ -28,7 +28,26 @@ export class AuthInterceptor implements HttpInterceptor {
       const authReq = request.clone({
         headers: request.headers.set("Authorization", `Bearer ${authToken}`),
       });
-      return next.handle(authReq);
+      //return next.handle(authReq);
+      return next.handle(authReq).pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 401) {
+            // Token might be expired
+            this.loginService.logout();
+            this.router.navigate(["/login"]);
+          } else if (error.status === 403) {
+            // Handle 403 Forbidden error
+            this.router.navigate(["/login"]);
+          } else if (error.status === 404) {
+            //Handle 404 Not Found error
+            this.router.navigate(["/not-found"]);
+          } else if (error.status >= 500) {
+            // Handle 500 Internal Server Error
+            this.router.navigate(["/server-error"]);
+          }
+          return throwError(error);
+        })
+      );
     }
 
     return next.handle(request).pipe(
@@ -39,7 +58,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.router.navigate(["/login"]);
         } else if (error.status === 403) {
           // Handle 403 Forbidden error
-          this.router.navigate(["/forbidden"]);
+          this.router.navigate(["/login"]);
         } else if (error.status === 404) {
           //Handle 404 Not Found error
           this.router.navigate(["/not-found"]);

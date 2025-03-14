@@ -1,0 +1,24 @@
+<section class="fase">
+    <div class="card" style="width: 18rem;">
+
+        <div class="card-body descricao">
+           <label>{{fase.ordem}}</label>
+        </div>
+        <div class="card-body">
+          <label>{{fase.nome}}</label>
+        </div>
+        <div class="card-body">
+            @if (fase.campeonatoFaseTipo != null ) {
+              <app-fase-tipo
+                [faseTipo] = "fase.campeonatoFaseTipo"
+              ></app-fase-tipo>
+            }
+            @else {
+              <h1>Tipo fase não cadastrado</h1>
+            }
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-danger">Exluir</button>
+        </div>
+    </div>
+</section>
