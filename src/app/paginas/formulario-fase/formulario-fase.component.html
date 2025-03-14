@@ -1,0 +1,33 @@
+<app-container>
+    <h1>Nova Fase</h1>
+    <form class="row g-3" [formGroup]="faseForm" (ngSubmit)="salvarFase()">
+        <div class="col-2">
+            <label for="inputOrdem" class="form-label">Ordem</label>
+            <input type="text" class="form-control" id="ordem" placeholder="{{ordem}}" disabled>
+        </div>
+        <div class="col-10">
+            <label for="inputNome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome da fase" formControlName="nome">
+        </div>
+        
+        <div class="col-12">
+            <label for="inputTipo" class="form-label">Tipo</label>
+            <select name="fasesTipos" id="fases-tipos" class="form-select" formControlName="campeonatoFaseTipoId"> <!-- changed here! -->
+                @for (tipo of fasesTipos; track $index) {
+                    <option [value]="tipo.id">{{ tipo.tipo }} - {{ tipo.descricao }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-4">     
+            <button 
+                class="btn btn-primary"
+                [disabled]="faseForm.invalid" 
+                [ngClass]="faseForm.valid ? '' : 'btn btn-light'"
+                type="submit">Salvar fase</button>
+          </div>
+          <div class="col-md-4">
+              <button (click)="cancelar()" type="button" class="btn btn-danger">Cancelar</button>
+          </div>
+    </form>
+</app-container>

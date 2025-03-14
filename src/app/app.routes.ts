@@ -6,6 +6,10 @@ import { ListaEquipesComponent } from "./paginas/equipes/lista-equipes/lista-equ
 import { FormularioEquipeComponent } from "./paginas/equipes/formulario-equipe/formulario-equipe.component";
 import { ListarJogadoresComponent } from "./paginas/jogadores/listar-jogadores/listar-jogadores.component";
 import { FormularioJogadorComponent } from "./paginas/jogadores/formulario-jogador/formulario-jogador.component";
+import { ListarCampeonatosComponent } from "./paginas/campeonatos/listar-campeonatos/listar-campeonatos.component";
+import { FormularioCampeonatoComponent } from "./paginas/campeonatos/formulario-campeonato/formulario-campeonato.component";
+import { FormularioFaseComponent } from "./paginas/formulario-fase/formulario-fase.component";
+import { ListarFasesComponent } from "./paginas/campeonatos/listar-fases/listar-fases.component";
 
 export const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -39,6 +43,26 @@ export const routes: Routes = [
   {
     path: "formulario-jogador/:id",
     component: FormularioJogadorComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "lista-campeonatos",
+    component: ListarCampeonatosComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "formulario-campeonato",
+    component: FormularioCampeonatoComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "formulario-campeonato/:id",
+    component: FormularioCampeonatoComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "listar-fases/:id",
+    component: ListarFasesComponent,
     canActivate: [AuthGuard],
   },
 ];

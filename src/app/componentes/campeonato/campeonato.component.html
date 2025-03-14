@@ -1,0 +1,17 @@
+<section class="equipe">
+    <div class="card" style="width: 18rem;">
+       <div class="card-body">
+           <h5 class="card-title" >{{campeonato.nome}}</h5>
+        </div>
+        <div class="card-body descricao">
+           <label>{{campeonato.descricao}}</label>
+        </div>
+        <div class="card-body">
+          <label>Qtde máxima equipes: {{campeonato.quantidadeMaximaEquipes}}</label>
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-campeonato', campeonato.id]">Editar</button>
+          <button type="button" class="btn btn-outline-primary" [routerLink]="['/listar-fases', campeonato.id]">Editar Fases</button>
+        </div>
+    </div>
+</section>

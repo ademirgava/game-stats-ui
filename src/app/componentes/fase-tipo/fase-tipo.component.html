@@ -1,0 +1,17 @@
+<section class="equipe">
+
+        <div class="card-body descricao">
+           <label>{{faseTipo.tipo}}</label>
+        </div>
+        <div class="card-body">
+          <label>{{faseTipo.descricao}}</label>
+        </div>
+
+            @if (faseTipo.campeonatoValorPontoacao != null && faseTipo.campeonatoValorPontoacao.id != null ) {
+              <app-fase-valor-pontoacao
+                [valorPontoacao]="faseTipo.campeonatoValorPontoacao"
+              >
+              </app-fase-valor-pontoacao>
+            }
+
+</section>
