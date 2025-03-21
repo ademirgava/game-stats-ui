@@ -1,0 +1,18 @@
+<app-container>
+  <h1>{{campeontaNome}}</h1>
+  <div class="col-md-4" *ngIf="showAdd">      
+    <button class="btn btn-outline-primary" (click)="appendComponent()" title="Nova fase"><i class="bi bi-plus-lg"></i></button>
+  </div>
+    <div #fase></div>
+    <section class="lista-fase">
+      @for (fase of fases; track fase.id) {
+          <app-fase
+            [fase]="fase"
+          ></app-fase>
+      }
+    </section>
+    
+
+
+
+</app-container>

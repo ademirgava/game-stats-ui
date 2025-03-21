@@ -1,5 +1,5 @@
 <app-container>
-    <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-jogador']" [queryParams]="{ equipeId: idEquipe}">Novo jogador</button>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-jogador']" [queryParams]="{ equipeId: idEquipe}" title="Novo jogador"><i class="bi bi-plus-lg"></i></button>
     <h5 class="card-title" [style]="{'color': corPrincipal != '' ? corPrincipal : 'black'}"
     >{{nomeEquipe}}</h5>
     <section class="lista-jogador"> 

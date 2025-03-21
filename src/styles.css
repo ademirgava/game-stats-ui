@@ -7,7 +7,9 @@ body {
   height: 100%;
 }
 
-
+button { 
+  margin: 5px;
+}
 
 .form-signin {
   width: 100%;

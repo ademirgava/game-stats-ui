@@ -8,8 +8,7 @@ import { ListarJogadoresComponent } from "./paginas/jogadores/listar-jogadores/l
 import { FormularioJogadorComponent } from "./paginas/jogadores/formulario-jogador/formulario-jogador.component";
 import { ListarCampeonatosComponent } from "./paginas/campeonatos/listar-campeonatos/listar-campeonatos.component";
 import { FormularioCampeonatoComponent } from "./paginas/campeonatos/formulario-campeonato/formulario-campeonato.component";
-import { FormularioFaseComponent } from "./paginas/formulario-fase/formulario-fase.component";
-import { ListarFasesComponent } from "./paginas/campeonatos/listar-fases/listar-fases.component";
+import { ListarFasesComponent } from "./paginas/fases/listar-fases/listar-fases.component";
 
 export const routes: Routes = [
   { path: "login", component: LoginComponent },

@@ -2,7 +2,7 @@
     <div class="card" style="width: 18rem;">
 
         <div class="card-body descricao">
-           <label>{{fase.ordem}}</label>
+           <label>Fase: {{fase.ordem}}</label>
         </div>
         <div class="card-body">
           <label>{{fase.nome}}</label>
@@ -18,7 +18,15 @@
             }
         </div>
         <div class="card-body">
-          <button type="button" class="btn btn-danger">Exluir</button>
+          <button type="button" class="btn btn-outline-danger" (click)="showModal()"><i class="bi bi-trash"></i></button>
         </div>
     </div>
+    <app-modal
+      #deleteModal
+      title="Deletar fase"
+      (confirma)="onConfirmarClick()"
+      (cancela)="onCancelarClick()"
+    >
+    Você realmente deseja deletar a fase: {{fase.ordem}} - {{fase.nome}} ?
+  </app-modal>
 </section>

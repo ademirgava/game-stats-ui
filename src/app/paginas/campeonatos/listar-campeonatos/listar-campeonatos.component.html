@@ -1,5 +1,5 @@
 <app-container>
-    <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-campeonato']">Novo campeonato</button>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-campeonato']" title="Novo campeonato"><i class="bi bi-plus-lg"></i></button>
     <section class="lista-campeonato">
         @for (campeonato of campeonatos; track campeonato.id) {
             <app-campeonato

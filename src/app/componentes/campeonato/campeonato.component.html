@@ -10,8 +10,8 @@
           <label>Qtde máxima equipes: {{campeonato.quantidadeMaximaEquipes}}</label>
         </div>
         <div class="card-body">
-          <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-campeonato', campeonato.id]">Editar</button>
-          <button type="button" class="btn btn-outline-primary" [routerLink]="['/listar-fases', campeonato.id]">Editar Fases</button>
+          <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-campeonato', campeonato.id]" title="Editar"><i class="bi bi-pencil-square"></i></button>
+          <button type="button" class="btn btn-outline-primary" [routerLink]="['/listar-fases', campeonato.id]" title="Editar fases"><i class="bi bi-pencil-square"></i>Fases</button>
         </div>
     </div>
 </section>

@@ -7,14 +7,15 @@ import {
   ViewContainerRef,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { ContainerComponent } from "../../../componentes/container/container.component";
 import { Fase } from "../../../componentes/models/fase";
 import { FaseService } from "../../../services/fases/fase.service";
-import { FormularioFaseComponent } from "../../formulario-fase/formulario-fase.component";
 import { FaseComponent } from "../../../componentes/fase/fase.component";
-import { ActivatedRoute } from "@angular/router";
 import { CampeonatoFaseTipo } from "../../../componentes/models/campeonatoFaseTipo";
+import { CampeonatosService } from "../../../services/campeonatos/campeonatos.service";
+import { FormularioFaseComponent } from "../formulario-fase/formulario-fase.component";
 
 @Component({
   selector: "app-listar-fases",
@@ -25,20 +26,29 @@ import { CampeonatoFaseTipo } from "../../../componentes/models/campeonatoFaseTi
 export class ListarFasesComponent implements OnInit {
   fases: Fase[] = [];
   fasesTipos: CampeonatoFaseTipo[] = [];
-  showAdd: boolean = false;
+  showAdd: boolean = true;
+  campeontaNome: string = "";
 
   @ViewChild("fase") novaFaseElement!: ElementRef<HTMLElement>;
 
   constructor(
     private cameponatoFaseService: FaseService,
     private viewContainerRef: ViewContainerRef,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private campeonatoService: CampeonatosService
   ) {}
 
   ngOnInit(): void {
+    this.showAdd = true;
     const id = this.activatedRoute.snapshot.paramMap.get("id");
 
     if (id) {
+      this.campeonatoService
+        .buscarPorId(parseInt(id))
+        .subscribe((campeonato) => {
+          this.campeontaNome = campeonato.nome;
+        });
       this.cameponatoFaseService
         .getFasesPorCampeonato(parseInt(id))
         .subscribe((fase) => {
@@ -67,17 +77,20 @@ export class ListarFasesComponent implements OnInit {
       element.contentEditable = "false";
 
       this.novaFaseElement.nativeElement.appendChild(element);
-      this.showAdd = true;
+      this.showAdd = false;
     }
   }
 
   getUltimaOrdem(): number {
     var ordem = 1;
-    if (this.fases) {
+    if (this.fases != null && this.fases.length > 0) {
       const max = this.fases.sort((a, b) => a.ordem - b.ordem);
       ordem = max[max.length - 1].ordem + 1;
     }
     return ordem;
   }
-  cancelar() {}
+
+  cancelar() {
+    this.router.navigateByUrl("/lista-campeonatos");
+  }
 }

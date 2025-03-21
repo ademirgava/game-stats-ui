@@ -12,11 +12,9 @@
             >{{equipe.nome}}</h5>
           </div>
           <div class="card-body">
-            <a [routerLink]="['/lista-jogador', equipe.id]">Lista de Jogadores</a>
-          </div>
-          <div class="card-body">
-            <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe', equipe.id]">Editar</button>
-            <button type="button" class="btn btn-outline-danger botao" [routerLink]="['/formulario-equipe', equipe.id]">Inativar</button>
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/lista-jogador', equipe.id]" title="Editar jogadores"><i class="bi bi-list"></i>Jogadores</button>
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/formulario-equipe', equipe.id]"title="Editar"><i class="bi bi-pencil-square"></i></button>
+            <button type="button" class="btn btn-outline-danger botao" [routerLink]="['/formulario-equipe', equipe.id]" title="Deletar"><i class="bi bi-trash"></i></button>
           </div>
       </div>
 </section>
