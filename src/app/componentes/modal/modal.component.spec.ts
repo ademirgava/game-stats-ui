@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdvancedFeturesComponent } from './advanced-fetures.component';
+import { ModalComponent } from './modal.component';
 
-describe('AdvancedFeturesComponent', () => {
-  let component: AdvancedFeturesComponent;
-  let fixture: ComponentFixture<AdvancedFeturesComponent>;
+describe('ModalComponent', () => {
+  let component: ModalComponent;
+  let fixture: ComponentFixture<ModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdvancedFeturesComponent]
+      imports: [ModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdvancedFeturesComponent);
+    fixture = TestBed.createComponent(ModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

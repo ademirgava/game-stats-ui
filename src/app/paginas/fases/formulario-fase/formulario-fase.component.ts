@@ -6,16 +6,15 @@ import {
   Validators,
 } from "@angular/forms";
 
-import { ContainerComponent } from "../../componentes/container/container.component";
 import { CommonModule } from "@angular/common";
-import { FaseTipoService } from "../../services/fases/fase-tipo.service";
-import { CampeonatoFaseTipo } from "../../componentes/models/campeonatoFaseTipo";
-import { FaseService } from "../../services/fases/fase.service";
-import { FaseNova } from "../../componentes/models/faseNova";
+import { CampeonatoFaseTipo } from "../../../componentes/models/campeonatoFaseTipo";
+import { FaseNova } from "../../../componentes/models/faseNova";
+import { FaseTipoService } from "../../../services/fases/fase-tipo.service";
+import { FaseService } from "../../../services/fases/fase.service";
 
 @Component({
   selector: "app-formulario-fase",
-  imports: [ContainerComponent, CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: "./formulario-fase.component.html",
   styleUrl: "./formulario-fase.component.css",
 })
